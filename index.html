@@ -6,8 +6,15 @@
 
 attempts: <b><span id="attempts">0</span></b><br>
 <br>
-<h1>highest number generated:<br><span style="padding-left: 20px; font-weight: normal; font-size: 25px;" id="highest">0</span></h1>
-<h1>lowest number generated:<br><span style="padding-left: 20px; font-weight: normal; font-size: 25px;" id="lowest">0</span></h1>
+<h1>highest number generated:<br><span style="padding-left: 20px; font-weight: normal; font-size: 25px;" id="highest">0</span>
+<br><span style="font-weight: normal; font-size: 15px;">chance to generate higher: <b><span id="chancetoGH">-</span></b>%</span>
+</h1>
+
+
+<h1>lowest number generated:<br><span style="padding-left: 20px; font-weight: normal; font-size: 25px;"><span id="lowest">0</span>
+<br><span style="font-weight: normal; font-size: 15px;">chance to generate lower: <b><span id="chancetoGL">-</span></b>%</span>
+</h1>
+
 <br><br>
 generating numbers: 0 - <input id="highestInput" style="width: 200px;" value="1000000"></input>
  <button onClick="changeMax()">change maximum and reset</button>
@@ -19,6 +26,8 @@ var maxPossible = 1000000;
 var rand = random(0,maxPossible);
 var highest = rand;
 var lowest = rand;
+var chancetoGH = 0;
+var chancetoGL = 0;
 
 function changeMax() {
   maxPossible -= maxPossible;
@@ -54,7 +63,10 @@ function reset() {
 if (rand > highest) {
   highest = rand; 
   document.getElementById("highest").innerHTML = thousands_separators(highest);
-  
+
+chancetoGH = (maxPossible-highest)/maxPossible
+document.getElementById("chancetoGH").innerHTML = thousands_separators(chancetoGH);
+ 
 	   if (highest == maxPossible) {
 	console.log("highest possible number(" +(maxPossible)+") generated in " + attempts + " attempts");
 	  }
@@ -64,6 +76,10 @@ if (rand > highest) {
 if (rand < lowest) {
   lowest = rand; 
   document.getElementById("lowest").innerHTML = thousands_separators(lowest);
+  
+chancetoGL = (maxPossible - (maxPossible - lowest))  / maxPossible
+document.getElementById("chancetoGL").innerHTML = thousands_separators(chancetoGL);
+
   
    if (lowest == 0) {
 console.log("lowest possible number(0) generated in " + attempts + " attempts");
