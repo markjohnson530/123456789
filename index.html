@@ -1,5 +1,12 @@
+<!DOCTYPE html style="height: 100%; width: 100%;">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name=”robots” content=”noindex”>
+</head>
 
-<h2 style="font-weight: normal; font-family: Arial;"><span style="">123456789</span>.pixel4jesus.com <img style="vertical-align:middle; height: 64px;" src="https://pixel4jesus.com/1.png">
+
+<h2 style="font-weight: normal; font-family: Arial;"><span style="">123456789</span>.pixel4jesus.com <a href="https://pixel4jesus.com"> <img style="vertical-align:middle; height: 64px;" src="https://pixel4jesus.com/1.png"></a>
 <br><hr style="float: left; width: 351px;"></h2>
 
 <br style="line-height: 0px;"> <p id="currentnumber"></p>
@@ -54,7 +61,8 @@ function hardReset() {
 function thousands_separators(num) { var num_parts = num.toString().split(".");num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");return num_parts.join(".");}
 
 
-function random(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+function random(min, max) { 
+return Math.floor(Math.random() * (max - min + 1)) + min; }
 
 function reset() {
   rand = random(0,maxPossible);
@@ -95,3 +103,5 @@ document.getElementById("attempts").innerHTML = thousands_separators(attempts);
 reset();
 }, 0);
 </script>
+</body>
+</html>
